@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import Body, FastAPI
 
 app = FastAPI()
 
@@ -15,7 +15,8 @@ def get_posts():
 
 
 @app.post("/create")
-def create_posts():
-    return {"message": "Successfully created post"}
+def create_posts(payLoad: dict = Body(...)): #Yo line ma Body ma vako sabai content lai extract garera paython dictornary ma banauca rew payLoad(variable) ma set garxa rakhxa
+    print(payLoad)
+    return {"new_post": f"title: {payLoad['title']}, content: {payLoad['content']}"}
     #Learning the POST metho of HTTP
 #Post method ma data post garne milxa API ma
