@@ -1,6 +1,11 @@
 from fastapi import Body, FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
+
+class Post(BaseModel):
+    title: str
+    content: str
 
 
 @app.get("/") #This is the decorator, When you use in the ip of the / then it direct print the message
@@ -15,8 +20,10 @@ def get_posts():
 
 
 @app.post("/create")
-def create_posts(payLoad: dict = Body(...)): #Yo line ma Body ma vako sabai content lai extract garera paython dictornary ma banauca rew payLoad(variable) ma set garxa rakhxa
-    print(payLoad)
-    return {"new_post": f"title: {payLoad['title']}, content: {payLoad['content']}"}
+def create_posts(new_post: Post): #Yo line ma Body ma vako sabai content lai extract garera paython dictornary ma banauca rew payLoad(variable) ma set garxa rakhxa
+    print(new_post.title)
+    return {"data":"new post"}
     #Learning the POST metho of HTTP
 #Post method ma data post garne milxa API ma
+
+#title str, content str, category
