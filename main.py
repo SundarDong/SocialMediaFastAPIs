@@ -12,3 +12,10 @@ def read_root():
 @app.get("/posts")
 def get_posts():
     return {"data": "This is my first data"}
+
+
+@app.post("/create")
+def create_posts():
+    return {"message": "Successfully created post"}
+    #Learning the POST metho of HTTP
+#Post method ma data post garne milxa API ma
