@@ -1,3 +1,4 @@
+from random import randrange
 from typing import Optional
 from fastapi import Body, FastAPI
 from pydantic import BaseModel
@@ -10,6 +11,10 @@ class Post(BaseModel):
     published: bool= True
     rating : Optional[int] = None
 
+my_posts = [{"title":"First post title", "content":"First post content", "id":1},
+                {"title":"Second post title", "content":"Second post content", "id":2}
+                ]
+
 @app.get("/") #This is the decorator, When you use in the ip of the / then it direct print the message
 def read_root():
     return {"message": "Welcome to my API !!!"}
@@ -18,14 +23,15 @@ def read_root():
 
 @app.get("/posts")
 def get_posts():
-    return {"data": "This is my first data"}
+    return {"data":my_posts}
 
 
-@app.post("/create")
+@app.post("/post")
 def create_posts(post: Post): #Yo line ma Body ma vako sabai content lai extract garera paython dictornary ma banauca rew payLoad(variable) ma set garxa rakhxa
-    print(post)
-    print(post.dict())
-    return {"data":post}
+    post_dict=post.dict()
+    post_dict['id']= randrange(0,10000000)
+    my_posts.append(post_dict)
+    return {"data":post_dict}
     
     #Learning the POST metho of HTTP
 #Post method ma data post garne milxa API ma

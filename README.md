@@ -7,3 +7,7 @@ b.Then after we create a post method and check into the POSTMAN. After that we w
 c.We check the the api response of the Published variable which is True in default and rating which take the int type data types and have default none value.
 
 d.Then after we send back the data in the response time by making in into the python dictory type.
+
+e.The after we send data my making the user defined static data in my_posts variable.
+
+f. Then after we send the new static id variable withing the specified randerang in the data json and if you see get in the response time you will see more new json data that we defined.
