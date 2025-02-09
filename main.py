@@ -32,8 +32,8 @@ def create_posts(post: Post): #Yo line ma Body ma vako sabai content lai extract
     post_dict['id']= randrange(0,10000000)
     my_posts.append(post_dict)
     return {"data":post_dict}
-    
-    #Learning the POST metho of HTTP
-#Post method ma data post garne milxa API ma
 
-#title str, content str, category
+@app.get("/post/{id}")
+def get_post(id):
+    print(id)
+    return {"post_details": f"Here is post id no:{id}"}

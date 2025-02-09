@@ -11,3 +11,5 @@ d.Then after we send back the data in the response time by making in into the py
 e.The after we send data my making the user defined static data in my_posts variable.
 
 f. Then after we send the new static id variable withing the specified randerang in the data json and if you see get in the response time you will see more new json data that we defined.
+
+g. After we try to get the id of the post that we can easily alter the datas information.
