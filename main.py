@@ -14,11 +14,16 @@ class Post(BaseModel):
 my_posts = [{"title":"First post title", "content":"First post content", "id":1},
                 {"title":"Second post title", "content":"Second post content", "id":2}
                 ]
+def find_posts(id):
+    for p in my_posts:
+        if p["id"]== id:
+            return p
+
 
 @app.get("/") #This is the decorator, When you use in the ip of the / then it direct print the message
 def read_root():
     return {"message": "Welcome to my API !!!"}
-
+int
     #if the decorator doesnt have same get url then it will run the first line of code of function.
 
 @app.get("/posts")
@@ -34,6 +39,7 @@ def create_posts(post: Post): #Yo line ma Body ma vako sabai content lai extract
     return {"data":post_dict}
 
 @app.get("/post/{id}")
-def get_post(id):
-    print(id)
-    return {"post_details": f"Here is post id no:{id}"}
+def get_post(id : int):
+    post = find_posts(id)
+    print(post)
+    return {"post_details": post}
