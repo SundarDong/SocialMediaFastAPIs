@@ -1,6 +1,6 @@
 from random import randrange
 from typing import Optional
-from fastapi import Body, FastAPI
+from fastapi import Body, FastAPI, Response
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -38,13 +38,17 @@ def create_posts(post: Post): #Yo line ma Body ma vako sabai content lai extract
     my_posts.append(post_dict)
     return {"data":post_dict}
 
-@app.get("/post/{id}")
-def get_post(id : int):
-    post = find_posts(id)
-    print(post)
-    return {"post_details": post}
+
 
 @app.get("/posts/latest")
 def get_latest_post():
     post= my_posts[len(my_posts)-1]
     return {"details": post}
+
+@app.get("/post/{id}")
+def get_post(id : int, response: Response):
+    post = find_posts(id)
+    if not post:
+        response.status_code =404
+    print(post)
+    return {"post_details": post}
