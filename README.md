@@ -14,4 +14,4 @@ f. Then after we send the new static id variable withing the specified randerang
 
 g. After we try to get the id of the post that we can easily alter the datas information. Here we can get the request for the single post by using the get_posts() method which we have defined in the main function CRUD operations.
 
-h. Then after we create the method that will reponse the latest post that we have created in the postman. And after we set down the response error message which will be appear in the HTTP response time.
+h. Then after we create the method that will reponse the latest post that we have created in the postman. And after we set down the response error message which will be appear in the HTTP response time. After we works on the HTTP error handling process while creating post or not find the post.
