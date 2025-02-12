@@ -12,7 +12,8 @@ class Post(BaseModel):
     rating : Optional[int] = None
 
 my_posts = [{"title":"First post title", "content":"First post content", "id":1},
-                {"title":"Second post title", "content":"Second post content", "id":2}
+                {"title":"Second post title", "content":"Second post content", "id":2},
+                {"title":" Third post title", "content":"Third post content", "id":3}
                 ]
 def find_posts(id):
     for p in my_posts:
