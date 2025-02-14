@@ -15,10 +15,16 @@ my_posts = [{"title":"First post title", "content":"First post content", "id":1}
                 {"title":"Second post title", "content":"Second post content", "id":2},
                 {"title":" Third post title", "content":"Third post content", "id":3}
                 ]
+
 def find_posts(id):
     for p in my_posts:
         if p["id"]== id:
             return p
+        
+def find_index_post(id):
+    for i, p in enumerate(my_posts):
+       if p['id']==id:
+        return i
 
 
 @app.get("/") #This is the decorator, When you use in the ip of the / then it direct print the message
@@ -49,3 +55,12 @@ def get_post(id : int, response: Response):
                             detail=f"post with id: {id} was not found")
     print(post)
     return {"post_details": post}
+
+@app.delete("/post/{id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_post(id : int):
+    #deleting the post
+    #find the index in the array that has required ID
+    #my_posts.pop()
+    index = find_index_post(id)
+    my_posts.pop(index)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
