@@ -19,3 +19,6 @@ h. Then after we create the method that will reponse the latest post that we hav
 i. Then I have saved the request HTTP method in directory named FastAPI course folder.Now, we will create the delete the post by making the new function using the delete http method.
 
 j. After that we will completely update on the delete function by adding the Erro reponse time error message in POSTMAN by using the HTTP response method error message.
+
+k. Now, we will successfully added the Update operation from the CRUD operation. So that we can updated our post according to the post id.
+
